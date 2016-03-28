@@ -1,18 +1,17 @@
 #!/bin/bash
 t_support="3"
 t_confidence="65"
-bitcode = ''
+bitcode=''
 
-if [[ $# == 2 ]]; then
-    $bitcode = "$1"
-elif [[ $# == 4 ]]; then
-    $bitcode = "$1"
-    $t_support = "$2"
-    $t_confidence = "$3"
+if [[ $# -eq 1 ]]; then
+    bitcode="$1"
+elif [[ $# -eq 3 ]]; then
+    bitcode="$1"
+    t_support="$2"
+    t_confidence="$3"
 else
     echo "Wrong number of arguments"
     exit 1
 fi
 
-opt -print-callgraph $bitcode 2>&1 >/dev/null | ./partA $t_support $t_confidence > "test_${2}_${3}.out"
-sort "test_${2}_${3}.out" -o "test_${2}_${3}.out"
+opt -print-callgraph $bitcode 2>&1 >/dev/null | ./partA $t_support $t_confidence | sort
