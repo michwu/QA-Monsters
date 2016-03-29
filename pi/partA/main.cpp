@@ -59,16 +59,16 @@ int main(int argc, const char* argv[]) {
   }
 
   // assume above is done
-  for (const auto &testPair : testPairs) {
-    size_t a = testPair.first;
-    size_t b = testPair.second;
+  for (set<pair<size_t, size_t> >::iterator it = testPairs.begin(); it != testPairs.end(); ++it) {
+    size_t a = it->first;
+    size_t b = it->second;
     int supportAB = 0, supportA = 0, supportB = 0;
     vector<string> aOnlyList;	// list of functions that only call A
     vector<string> bOnlyList;	// list of functions that only call B
 
-    for (auto mapPair : htMap) {
-      string funcName = mapPair.first;
-      set<size_t> *functionSet = mapPair.second;
+    for (map<string, set<size_t>*>::iterator htMapIt = htMap.begin(); htMapIt != htMap.end(); ++htMapIt) {
+      string funcName = htMapIt->first;
+      set<size_t> *functionSet = htMapIt->second;
 
       bool aFound = (functionSet->find(a) != functionSet->end());
       bool bFound = (functionSet->find(b) != functionSet->end());
@@ -88,21 +88,23 @@ int main(int argc, const char* argv[]) {
 
     double confidenceA = (((double)supportAB)/((double)supportA)) * 100.0;
     if(supportAB >= support && confidenceA >= (double)confidence) {
-      for (string funcName : aOnlyList) {
+      for (vector<string>::iterator listIter = aOnlyList.begin(); listIter != aOnlyList.end(); ++listIter) {
+				string funcName = *listIter;
     		cout << "bug: " << hashToFuncName[a] << "A in " << funcName << ", pair: (" << hashToFuncName[a] << ", " << hashToFuncName[b] << "), support: " << supportAB << ", confidence: " << setprecision(9) << confidenceA << "%" << endl;
       }
     }
 
     double confidenceB = (((double)supportAB)/((double)supportB)) * 100.0;
     if(supportAB >= support && confidenceB >= (double)confidence) {
-      for (string funcName : bOnlyList) {
+      for (vector<string>::iterator listIter = bOnlyList.begin(); listIter != bOnlyList.end(); ++listIter) {
+				string funcName = *listIter;
     		cout << "bug: " << hashToFuncName[b] << "A in " << funcName << ", pair: (" << hashToFuncName[a] << ", " << hashToFuncName[b] << "), support: " << supportAB << ", confidence: " << setprecision(9) << confidenceB << "%" << endl;
       }
     }
   }
 
   // cleanup
-  for (auto pair : htMap) {
-    delete pair.second;
+  for (map<string, set<size_t>*>::iterator iter = htMap.begin(); iter != htMap.end(); ++iter) {
+    delete iter->second;
   }
 }
