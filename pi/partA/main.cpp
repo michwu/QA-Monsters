@@ -1,12 +1,11 @@
 #include <cstdlib>
-#include <iostream>
-#include <string>
-#include <set>
-#include <vector>
-#include <map>
-#include <tuple>
-#include <algorithm>
 #include <iomanip>
+#include <iostream>
+#include <map>
+#include <set>
+#include <string>
+#include <utility>
+#include <vector>
 #include <boost/functional/hash.hpp>
 #include <boost/algorithm/string.hpp>
 
