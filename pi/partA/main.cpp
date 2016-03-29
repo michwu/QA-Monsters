@@ -7,6 +7,9 @@
 #include <tuple>
 #include <algorithm>
 #include <iomanip>
+#include <boost/functional/hash.hpp>
+#include <boost/algorithm/string.hpp>
+
 
 using namespace std;
 
@@ -17,8 +20,8 @@ int main(int argc, const char* argv[]) {
   int support = 3;
   int confidence = 65;
 
-  map<string, set<size_t>*> htMap;							// a map of function names to sets of integer hashes of functions that are in the function
-  map<size_t, string> hashToFuncName;											// maps integer hashes to function names
+  map<string, set<size_t>*> htMap;							  // a map of function names to sets of integer hashes of functions that are in the function
+  map<size_t, string> hashToFuncName;							// maps integer hashes to function names
   set<pair<size_t, size_t> >	testPairs;					// pairs to test
 
   if (argc == 3) {
@@ -27,7 +30,7 @@ int main(int argc, const char* argv[]) {
   }
 
   string curFunc;
-  hash<string> str_hash;
+  boost::hash<std::string> str_hash;
   for (string line; getline(cin, line);) {
     if (line.find(CALLER_STR) != string::npos) {
       set<size_t> *callees = new set<size_t>();
@@ -46,12 +49,9 @@ int main(int argc, const char* argv[]) {
       callees->insert(calleeHash);
       hashToFuncName[calleeHash] = callee;
 
-      std::string curFuncUpper, calleeUpper;
-      curFuncUpper.resize(curFunc.length());
-      calleeUpper.resize(callee.length());
-      std::transform(curFunc.begin(), curFunc.end(), curFuncUpper.begin(), ::toupper);
-      std::transform(callee.begin(), callee.end(), calleeUpper.begin(), ::toupper);
-      if (curFuncUpper < calleeUpper) {
+      std::string curFuncUpper(boost::to_upper_copy<std::string>(curFunc));
+      std::string calleeUpper(boost::to_upper_copy<std::string>(callee));
+      if (curFuncUpper.compare(calleeUpper)) {
         testPairs.insert(make_pair(str_hash(curFuncUpper), str_hash(calleeUpper)));
       } else {
 				testPairs.insert(make_pair(str_hash(calleeUpper), str_hash(curFuncUpper)));
