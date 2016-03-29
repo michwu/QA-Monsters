@@ -12,8 +12,8 @@
 
 using namespace std;
 
-string CALLER_STR = "Call graph node for function: '";
-string CALLEE_STR = "calls function '";
+const string CALLER_STR = "Call graph node for function: '";
+const string CALLEE_STR = "calls function '";
 
 int main(int argc, const char* argv[]) {
   int support = 3;
