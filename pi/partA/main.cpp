@@ -9,19 +9,20 @@
 #include <boost/functional/hash.hpp>
 #include <boost/algorithm/string.hpp>
 
+#define CALLER_STR "Call graph node for function: '"
+#define CALLEE_STR "calls function '"
 
 using namespace std;
-
-const string CALLER_STR = "Call graph node for function: '";
-const string CALLEE_STR = "calls function '";
 
 int main(int argc, const char* argv[]) {
   int support = 3;
   int confidence = 65;
+  string caller_str = string(CALLEE_STR);
+  string callee_str = string(CALLEE_STR);
 
-  map<string, set<size_t>*> htMap;							  // a map of function names to sets of integer hashes of functions that are in the function
-  map<size_t, string> hashToFuncName;							// maps integer hashes to function names
-  set<pair<size_t, size_t> >	testPairs;					// pairs to test
+  map<string, set<size_t>*> htMap;                          // a map of function names to sets of integer hashes of functions that are in the function
+  map<size_t, string> hashToFuncName;						// maps integer hashes to function names
+  set<pair<size_t, size_t> > testPairs;	    				// pairs to test
 
   if (argc == 3) {
     support = atoi(argv[1]);
@@ -31,19 +32,19 @@ int main(int argc, const char* argv[]) {
   string curFunc;
   boost::hash<std::string> str_hash;
   for (string line; getline(cin, line);) {
-    if (line.find(CALLER_STR) != string::npos) {
+    if (line.find(caller_str) != string::npos) {
       set<size_t> *callees = new set<size_t>();
 
-      int endIndex = line.find("'", CALLER_STR.length());
-      curFunc = line.substr(CALLER_STR.length(), endIndex-CALLER_STR.length());
+      int endIndex = line.find("'", caller_str.length());
+      curFunc = line.substr(caller_str.length(), endIndex-caller_str.length());
       htMap[curFunc] = callees;
       hashToFuncName[str_hash(curFunc)] = curFunc;
     }
 
-		if (line.find(CALLEE_STR) != string::npos) {
+    if (line.find(callee_str) != string::npos) {
       std::set<size_t> *callees = htMap[curFunc];
 
-      string callee = line.substr(CALLEE_STR.length(), line.length()-CALLEE_STR.length());
+      string callee = line.substr(callee_str.length(), line.length()-callee_str.length());
       size_t calleeHash = str_hash(callee);
       callees->insert(calleeHash);
       hashToFuncName[calleeHash] = callee;
@@ -53,12 +54,11 @@ int main(int argc, const char* argv[]) {
       if (curFuncUpper.compare(calleeUpper)) {
         testPairs.insert(make_pair(str_hash(curFuncUpper), str_hash(calleeUpper)));
       } else {
-				testPairs.insert(make_pair(str_hash(calleeUpper), str_hash(curFuncUpper)));
+        testPairs.insert(make_pair(str_hash(calleeUpper), str_hash(curFuncUpper)));
       }
     }
   }
 
-  // assume above is done
   for (set<pair<size_t, size_t> >::iterator it = testPairs.begin(); it != testPairs.end(); ++it) {
     size_t a = it->first;
     size_t b = it->second;
