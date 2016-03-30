@@ -14,4 +14,4 @@ else
     exit 1
 fi
 
-opt -print-callgraph $bitcode 2>&1 >/dev/null | ./partA $t_support $t_confidence | sort
+opt -print-callgraph $bitcode 2>&1 >/dev/null | ../partA $t_support $t_confidence | sort
