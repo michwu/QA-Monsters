@@ -51,7 +51,7 @@ int main(int argc, const char* argv[]) {
 
       std::string curFuncUpper(boost::to_upper_copy<std::string>(curFunc));
       std::string calleeUpper(boost::to_upper_copy<std::string>(callee));
-      if (curFuncUpper.compare(calleeUpper)) {
+      if (curFuncUpper.compare(calleeUpper) < 0) {
         testPairs.insert(make_pair(str_hash(curFuncUpper), str_hash(calleeUpper)));
       } else {
         testPairs.insert(make_pair(str_hash(calleeUpper), str_hash(curFuncUpper)));
