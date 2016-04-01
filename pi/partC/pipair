@@ -2,7 +2,7 @@
 #!/bin/bash
 t_support="3"
 t_confidence="65"
-t_depth="0"
+t_expand="0"
 bitcode=''
 
 if [[ $# -eq 1 ]]; then
@@ -15,10 +15,10 @@ elif [[ $# -eq 4 ]]; then
     bitcode="$1"
     t_support="$2"
     t_confidence="$3"
-    t_depth="$4"
+    t_expand="$4"
 else
     echo "Wrong number of arguments"
     exit 1
 fi
 
-opt -print-callgraph $bitcode 2>&1 >/dev/null | ../partA $t_support $t_confidence $t_depth | sort
+opt -print-callgraph $bitcode 2>&1 >/dev/null | ../partC $t_support $t_confidence $t_expand

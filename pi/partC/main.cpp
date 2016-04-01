@@ -19,7 +19,7 @@ using namespace std;
 int main(int argc, const char* argv[]) {
   int support = 3;
   int confidence = 65;
-  int depth = 0;
+  char expand = 'n';
   string caller_str = string(CALLER_STR);
   string callee_str = string(CALLEE_STR);
   string ext_callee_str = string(EXT_CALLEE_STR);
@@ -34,12 +34,14 @@ int main(int argc, const char* argv[]) {
   }else if (argc == 4) {
     support = atoi(argv[1]);
     confidence = atoi(argv[2]);
-    depth = atoi(argv[3]);  
+    expand = argv[3][0];  
   }
 
   string curFunc;
   set<string> prevCallees;
   boost::hash<string> str_hash;
+  
+  // First pass to build the call graph
   for (string line; getline(cin, line);) {
     if (line.find(caller_str) != string::npos) {
       set<size_t> *callees = new set<size_t>();
@@ -57,15 +59,46 @@ int main(int argc, const char* argv[]) {
       int endIndex = line.find("'", startIndex+1);
       string callee = line.substr(startIndex+1, endIndex-startIndex-1);
 
-      if (prevCallees.find(callee) != prevCallees.end()) {
-        continue;
-      }
-
       size_t calleeHash = str_hash(callee);
       callees->insert(calleeHash);
       hashToFuncName[calleeHash] = callee;
+    } else if (line.find(ext_callee_str) == string::npos) {
+      curFunc.clear();
+    }
+  }
 
+  //Second pass to expand on functions if necessary
+  if (expand == 'y' || expand == 'Y') {
+    map<string, set<size_t>*> expandedHtMap;
+    for (map<string, set<size_t>*>::iterator htMapIt = htMap.begin(); htMapIt != htMap.end(); ++htMapIt) {
+      set<size_t> *callees = htMapIt->second;
+      set<size_t> *expandedCallees = new set<size_t>();
+      for (set<size_t>::iterator calleesIt = callees->begin(); calleesIt != callees->end(); ++calleesIt) {
+        set<size_t> *expanedCalleesIt = htMap[hashToFuncName[*calleesIt]];
+        expandedCallees->insert(expanedCalleesIt->begin(), expanedCalleesIt->end());
+      }
+      expandedHtMap[htMapIt->first] = expandedCallees;
+    }
+    // Copy over the extended list
+    for (map<string, set<size_t>*>::iterator htMapIt = htMap.begin(); htMapIt != htMap.end(); ++htMapIt) {
+      delete htMap[htMapIt->first];
+      htMap[htMapIt->first] = expandedHtMap[htMapIt->first];
+    }
+  }
+
+  // Build pairing of functiosn called together
+  for (map<string, set<size_t>*>::iterator htMapIt = htMap.begin(); htMapIt != htMap.end(); ++htMapIt) {
+    set<size_t> *callees = htMapIt->second;
+    prevCallees.clear();
+
+    for (set<size_t>::iterator calleesIt = callees->begin(); calleesIt != callees->end(); ++calleesIt) {
+      string callee = hashToFuncName[*calleesIt];
       string calleeLower(boost::to_lower_copy<string>(callee));
+
+      if (prevCallees.find(callee) != prevCallees.end()) {
+        continue;
+      }
+ 
       for (set<string>::iterator it = prevCallees.begin(); it != prevCallees.end(); ++it) {
         string prevCalleeLower(boost::to_lower_copy<string>(*it));
         if (calleeLower.compare(prevCalleeLower) < 0) {
@@ -76,11 +109,10 @@ int main(int argc, const char* argv[]) {
       }
 
       prevCallees.insert(callee);
-    } else if (line.find(ext_callee_str) == string::npos) {
-      curFunc.clear();
     }
   }
 
+  // Loop through pairings to do analysis
   for (set<pair<size_t, size_t> >::iterator it = testPairs.begin(); it != testPairs.end(); ++it) {
     size_t a = it->first;
     size_t b = it->second;

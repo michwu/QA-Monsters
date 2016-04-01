@@ -35,6 +35,7 @@ int main(int argc, const char* argv[]) {
   string curFunc;
   set<string> prevCallees;
   boost::hash<string> str_hash;
+  // Parse input callgraph into hashes and sets for analysis
   for (string line; getline(cin, line);) {
     if (line.find(caller_str) != string::npos) {
       set<size_t> *callees = new set<size_t>();
@@ -76,6 +77,7 @@ int main(int argc, const char* argv[]) {
     }
   }
 
+  // Loop through pairings to do analysis
   for (set<pair<size_t, size_t> >::iterator it = testPairs.begin(); it != testPairs.end(); ++it) {
     size_t a = it->first;
     size_t b = it->second;
