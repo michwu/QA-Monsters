@@ -38,14 +38,17 @@ int main(int argc, const char* argv[]) {
       set<size_t> *callees = new set<size_t>();
       prevCallees.clear();
 
-      int endIndex = line.find("'", caller_str.length());
-      curFunc = line.substr(caller_str.length(), endIndex-caller_str.length());
+      int startIndex = line.find("'");
+      int endIndex = line.find("'", startIndex+1);
+      curFunc = line.substr(startIndex+1, endIndex-startIndex-1);
       htMap[curFunc] = callees;
       hashToFuncName[str_hash(curFunc)] = curFunc;
     } else if (!curFunc.empty() && line.find(callee_str) != string::npos) {
       set<size_t> *callees = htMap[curFunc];
 
-      string callee = line.substr(callee_str.length(), line.length()-callee_str.length()-1);
+      int startIndex = line.find("'");
+      int endIndex = line.find("'", startIndex+1);
+      string callee = line.substr(startIndex+1, endIndex-startIndex-1);
       size_t calleeHash = str_hash(callee);
       callees->insert(calleeHash);
       hashToFuncName[calleeHash] = callee;
@@ -93,19 +96,31 @@ int main(int argc, const char* argv[]) {
       }
     }
 
-    double confidenceA = (((double)supportAB)/((double)supportA)) * 100.0;
-    if(supportAB >= support && confidenceA >= (double)confidence) {
+    float confidenceA = (((float)supportAB)/(supportA)) * 100.0;
+    if(supportAB >= support && confidenceA >= (float)confidence) {
       for (vector<string>::iterator listIter = aOnlyList.begin(); listIter != aOnlyList.end(); ++listIter) {
 				string funcName = *listIter;
-    		cout << "bug: " << hashToFuncName[a] << "A in " << funcName << ", pair: (" << hashToFuncName[a] << ", " << hashToFuncName[b] << "), support: " << supportAB << ", confidence: " << setprecision(9) << confidenceA << "%" << endl;
+        printf("bug: %s in %s, pair: (%s, %s), support: %d, confidence: %.2f\%\n",
+              hashToFuncName[a].c_str(),
+              funcName.c_str(),
+              hashToFuncName[a].c_str(),
+              hashToFuncName[b].c_str(),
+              supportAB,
+              confidenceA);
       }
     }
 
-    double confidenceB = (((double)supportAB)/((double)supportB)) * 100.0;
-    if(supportAB >= support && confidenceB >= (double)confidence) {
+    float confidenceB = (((float)supportAB)/(supportB)) * 100.0;
+    if(supportAB >= support && confidenceB >= (float)confidence) {
       for (vector<string>::iterator listIter = bOnlyList.begin(); listIter != bOnlyList.end(); ++listIter) {
 				string funcName = *listIter;
-    		cout << "bug: " << hashToFuncName[b] << "A in " << funcName << ", pair: (" << hashToFuncName[a] << ", " << hashToFuncName[b] << "), support: " << supportAB << ", confidence: " << setprecision(9) << confidenceB << "%" << endl;
+        printf("bug: %s in %s, pair: (%s, %s), support: %d, confidence: %.2f\%\n",
+              hashToFuncName[b].c_str(),
+              funcName.c_str(),
+              hashToFuncName[a].c_str(),
+              hashToFuncName[b].c_str(),
+              supportAB,
+              confidenceB);
       }
     }
   }
