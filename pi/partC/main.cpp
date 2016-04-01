@@ -81,12 +81,12 @@ int main(int argc, const char* argv[]) {
     }
     // Copy over the extended list
     for (map<string, set<size_t>*>::iterator htMapIt = htMap.begin(); htMapIt != htMap.end(); ++htMapIt) {
-      delete htMap[htMapIt->first];
-      htMap[htMapIt->first] = expandedHtMap[htMapIt->first];
+      delete htMapIt->second;
+      htMapIt->second = expandedHtMap[htMapIt->first];
     }
   }
 
-  // Build pairing of functiosn called together
+  // Build pairing of function called together
   for (map<string, set<size_t>*>::iterator htMapIt = htMap.begin(); htMapIt != htMap.end(); ++htMapIt) {
     set<size_t> *callees = htMapIt->second;
     prevCallees.clear();
