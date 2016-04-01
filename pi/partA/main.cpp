@@ -14,12 +14,14 @@ using namespace std;
 
 #define CALLER_STR "Call graph node for function: '"
 #define CALLEE_STR "calls function '"
+#define EXT_CALLEE_STR "calls external node"
 
 int main(int argc, const char* argv[]) {
   int support = 3;
   int confidence = 65;
   string caller_str = string(CALLER_STR);
   string callee_str = string(CALLEE_STR);
+  string ext_callee_str = string(EXT_CALLEE_STR);
 
   map<string, set<size_t>*> htMap;                  // a map of function names to sets of integer hashes of functions that are in the function
   map<size_t, string> hashToFuncName;               // maps integer hashes to function names
@@ -31,7 +33,7 @@ int main(int argc, const char* argv[]) {
   }
 
   string curFunc;
-  vector<string> prevCallees;
+  set<string> prevCallees;
   boost::hash<string> str_hash;
   for (string line; getline(cin, line);) {
     if (line.find(caller_str) != string::npos) {
@@ -49,12 +51,17 @@ int main(int argc, const char* argv[]) {
       int startIndex = line.find("'");
       int endIndex = line.find("'", startIndex+1);
       string callee = line.substr(startIndex+1, endIndex-startIndex-1);
+
+      if (prevCallees.find(callee) != prevCallees.end()) {
+        continue;
+      }
+
       size_t calleeHash = str_hash(callee);
       callees->insert(calleeHash);
       hashToFuncName[calleeHash] = callee;
-      
+
       string calleeUpper(boost::to_upper_copy<string>(callee));
-      for (vector<string>::iterator it = prevCallees.begin(); it != prevCallees.end(); ++it) {
+      for (set<string>::iterator it = prevCallees.begin(); it != prevCallees.end(); ++it) {
         string prevCalleeUpper(boost::to_upper_copy<string>(*it));
         if (calleeUpper.compare(prevCalleeUpper) < 0) {
           testPairs.insert(make_pair(str_hash(callee), str_hash(*it)));
@@ -63,8 +70,8 @@ int main(int argc, const char* argv[]) {
         }
       }
 
-      prevCallees.push_back(callee);
-    } else {
+      prevCallees.insert(callee);
+    } else if (line.find(ext_callee_str) == string::npos) {
       curFunc.clear();
     }
   }
