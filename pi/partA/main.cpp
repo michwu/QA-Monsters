@@ -60,10 +60,10 @@ int main(int argc, const char* argv[]) {
       callees->insert(calleeHash);
       hashToFuncName[calleeHash] = callee;
 
-      string calleeUpper(boost::to_upper_copy<string>(callee));
+      string calleeLower(boost::to_lower_copy<string>(callee));
       for (set<string>::iterator it = prevCallees.begin(); it != prevCallees.end(); ++it) {
-        string prevCalleeUpper(boost::to_upper_copy<string>(*it));
-        if (calleeUpper.compare(prevCalleeUpper) < 0) {
+        string prevCalleeLower(boost::to_lower_copy<string>(*it));
+        if (calleeLower.compare(prevCalleeLower) < 0) {
           testPairs.insert(make_pair(str_hash(callee), str_hash(*it)));
         } else {
           testPairs.insert(make_pair(str_hash(*it), str_hash(callee)));
