@@ -9,19 +9,20 @@
 #include <boost/functional/hash.hpp>
 #include <boost/algorithm/string.hpp>
 
+using namespace std;
+
+
 #define CALLER_STR "Call graph node for function: '"
 #define CALLEE_STR "calls function '"
-
-using namespace std;
 
 int main(int argc, const char* argv[]) {
   int support = 3;
   int confidence = 65;
-  string caller_str = string(CALLEE_STR);
+  string caller_str = string(CALLER_STR);
   string callee_str = string(CALLEE_STR);
 
-  map<string, set<size_t>*> htMap;                          // a map of function names to sets of integer hashes of functions that are in the function
-  map<size_t, string> hashToFuncName;						// maps integer hashes to function names
+  map<string, set<size_t>*> htMap;                  // a map of function names to sets of integer hashes of functions that are in the function
+  map<size_t, string> hashToFuncName;               // maps integer hashes to function names
   set<pair<size_t, size_t> > testPairs;	    				// pairs to test
 
   if (argc == 3) {
@@ -30,32 +31,38 @@ int main(int argc, const char* argv[]) {
   }
 
   string curFunc;
-  boost::hash<std::string> str_hash;
+  vector<string> prevCallees;
+  boost::hash<string> str_hash;
   for (string line; getline(cin, line);) {
     if (line.find(caller_str) != string::npos) {
       set<size_t> *callees = new set<size_t>();
+      prevCallees.clear();
 
       int endIndex = line.find("'", caller_str.length());
       curFunc = line.substr(caller_str.length(), endIndex-caller_str.length());
       htMap[curFunc] = callees;
       hashToFuncName[str_hash(curFunc)] = curFunc;
-    }
+    } else if (!curFunc.empty() && line.find(callee_str) != string::npos) {
+      set<size_t> *callees = htMap[curFunc];
 
-    if (line.find(callee_str) != string::npos) {
-      std::set<size_t> *callees = htMap[curFunc];
-
-      string callee = line.substr(callee_str.length(), line.length()-callee_str.length());
+      string callee = line.substr(callee_str.length(), line.length()-callee_str.length()-1);
       size_t calleeHash = str_hash(callee);
       callees->insert(calleeHash);
       hashToFuncName[calleeHash] = callee;
-
-      std::string curFuncUpper(boost::to_upper_copy<std::string>(curFunc));
-      std::string calleeUpper(boost::to_upper_copy<std::string>(callee));
-      if (curFuncUpper.compare(calleeUpper) < 0) {
-        testPairs.insert(make_pair(str_hash(curFuncUpper), str_hash(calleeUpper)));
-      } else {
-        testPairs.insert(make_pair(str_hash(calleeUpper), str_hash(curFuncUpper)));
+      
+      string calleeUpper(boost::to_upper_copy<string>(callee));
+      for (vector<string>::iterator it = prevCallees.begin(); it != prevCallees.end(); ++it) {
+        string prevCalleeUpper(boost::to_upper_copy<string>(*it));
+        if (calleeUpper.compare(prevCalleeUpper) < 0) {
+          testPairs.insert(make_pair(str_hash(callee), str_hash(*it)));
+        } else {
+          testPairs.insert(make_pair(str_hash(*it), str_hash(callee)));
+        }
       }
+
+      prevCallees.push_back(callee);
+    } else {
+      curFunc.clear();
     }
   }
 

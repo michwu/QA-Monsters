@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -I /opt/boost_1_60_0 -g -O2
+CXXFLAGS = -I /opt/boost_1_60_0 -O2
 
 default: all
 
