@@ -1,0 +1,160 @@
+timer                                            ms      calls
+--------------------------------------------------------------
+sequential initialization                       149          1
+  Looking for translation units                   0          1
+  Computing links for translation units          13          1
+  xfer symbol cache                               3          1
+  Computing virtual overrides                     9          1
+  Computing callgraph                            48          1
+  Topologically sorting functions                 5          1
+  (left over)                                    71
+Computing node costs                              6          1
+Analysis run                                   1378          1
+  loadFromEmit                                  423        896
+    RELAX_NULL_RETURN                             4        448
+    ARRAY_VS_SINGLETON_pass1                      5        448
+    CHECKED_RETURN_pass1                          0        448
+    RELAX_ALLOC                                   0        448
+    CTOR_DTOR_LEAK_pass1                          1        448
+      CTOR_DTOR_LEAK_pass1                        1        448
+    UNINIT_CTOR_pass1                             0        448
+    (left over)                                 413
+  ADDR_ARG_STAT                                   0          1
+  CHECKED_RETURN_STAT                             0          1
+  ASSERT_SIDE_EFFECT                              0          1
+  BAD_ALLOC_ARITHMETIC                            0          1
+  BAD_ALLOC_STRLEN                                0          1
+  BAD_COMPARE                                     0          1
+  BAD_SIZEOF                                      0          1
+  CHAR_IO                                         0          1
+  COM.BSTR.CONV                                   0          1
+  CONSTANT_EXPRESSION_RESULT                      0          1
+  COPY_PASTE_ERROR                                0          1
+  DELETE_VOID                                     0          1
+  DERIVE_PTR_ARITH                                0          1
+  DUMMY_DERIVER_EXCEPTIONS                        0          1
+  DUMMY_DERIVER_PTR_ARITH                         0          1
+  DUMMY_DERIVER_STACK_USE                         0          1
+  DUMMY_DERIVER_UNINIT                            0          1
+  EVALUATION_ORDER                                0          1
+  IDENTICAL_BRANCHES                              0          1
+  IFACE_TRACKER                                   0          3
+  INFINITE_LOOP                                   0          1
+  INVALIDATE_ITERATOR                             0          1
+  MISSING_BREAK                                   0          1
+  NESTING_INDENT_MISMATCH                         0          1
+  NO_EFFECT                                       0          1
+  PASS_BY_VALUE                                   0          1
+  RELAX_ACCESS_DBUFFER                            0          1
+  RELAX_ALLOC                                     0          1
+  RELAX_BUFFER_SIZE                               0          1
+  RELAX_CHECKED_RETURN                            0          1
+  RELAX_DELETE_ARRAY                              0          1
+  RELAX_DEREF_ARGS                                0          1
+  RELAX_FREED_ARGS                                0          1
+  RELAX_INDEX_GENERIC                             0          1
+  RELAX_INDEX_STATIC                              0          1
+  RELAX_MAYREAD_NONPTR_FIELDS                     0          1
+  RELAX_MAYWRITE                                  0          1
+  RELAX_MAYWRITE_ALL_FIELDS                       0          1
+  RELAX_MAYWRITE_NONPTR_FIELDS                    0          1
+  RELAX_MAYWRITE_NONPTR_FIELDS_UNINIT             0          1
+  RELAX_NEGATIVE_RETURN                           0          1
+  RELAX_NEGATIVE_SINK                             0          1
+  RELAX_NEW_ARRAY                                 0          1
+  RELAX_NOTHING                                   0          1
+  RELAX_NULL_RETURN                               0          1
+  RELAX_PARAM_NAMES                               0          1
+  RELAX_READ                                      0          1
+  RELAX_UNCAUGHT_EXCEPT                           0          1
+  RELAX_UNINIT_ALLOC                              0          1
+  RELAX_WRITE                                     0          1
+  REVERSE_INULL                                   0          1
+  SIGN_EXTENSION                                  0          1
+  SIZEOF_MISMATCH                                 0          1
+  STRAY_SEMICOLON                                 0          1
+  SWAPPED_ARGUMENTS                               0          1
+  UNCAUGHT_EXCEPT                                 0          1
+  UNINTENDED_INTEGER_DIVISION                     0          1
+  UNREACHABLE                                     0          1
+  UNUSED_VALUE                                    0          1
+types/warning pass                                6          1
+  BAD_OVERRIDE                                    0          1
+
+activity                                         ms      calls
+--------------------------------------------------------------
+IFACE_TRACKER                                     0          3
+ARRAY_VS_SINGLETON_pass1                          5        448
+ASSERT_SIDE_EFFECT                                0          1
+BAD_ALLOC_ARITHMETIC                              0          1
+BAD_ALLOC_STRLEN                                  0          1
+BAD_COMPARE                                       0          1
+BAD_SIZEOF                                        0          1
+CHAR_IO                                           0          1
+CHECKED_RETURN_pass1                              0        448
+COM.BSTR.CONV                                     0          1
+CONSTANT_EXPRESSION_RESULT                        0          1
+COPY_PASTE_ERROR                                  0          1
+CTOR_DTOR_LEAK_pass1                              2        896
+DELETE_VOID                                       0          1
+EVALUATION_ORDER                                  0          1
+IDENTICAL_BRANCHES                                0          1
+INFINITE_LOOP                                     0          1
+INVALIDATE_ITERATOR                               0          1
+MISSING_BREAK                                     0          1
+NESTING_INDENT_MISMATCH                           0          1
+NO_EFFECT                                         0          1
+PASS_BY_VALUE                                     0          1
+REVERSE_INULL                                     0          1
+SIGN_EXTENSION                                    0          1
+SIZEOF_MISMATCH                                   0          1
+STRAY_SEMICOLON                                   0          1
+SWAPPED_ARGUMENTS                                 0          1
+UNCAUGHT_EXCEPT                                   0          1
+UNINIT_CTOR_pass1                                 0        448
+UNINTENDED_INTEGER_DIVISION                       0          1
+UNREACHABLE                                       0          1
+UNUSED_VALUE                                      0          1
+RELAX_ACCESS_DBUFFER                              0          1
+RELAX_ALLOC                                       0        449
+RELAX_BUFFER_SIZE                                 0          1
+RELAX_CHECKED_RETURN                              0          1
+RELAX_DEREF_ARGS                                  0          1
+RELAX_FREED_ARGS                                  0          1
+RELAX_INDEX_GENERIC                               0          1
+RELAX_INDEX_STATIC                                0          1
+RELAX_MAYWRITE_NONPTR_FIELDS                      0          1
+RELAX_NEGATIVE_RETURN                             0          1
+RELAX_NEGATIVE_SINK                               0          1
+RELAX_NULL_RETURN                                 4        449
+RELAX_WRITE                                       0          1
+RELAX_NEW_ARRAY                                   0          1
+RELAX_DELETE_ARRAY                                0          1
+RELAX_NOTHING                                     0          1
+DERIVE_PTR_ARITH                                  0          1
+DUMMY_DERIVER_PTR_ARITH                           0          1
+RELAX_PARAM_NAMES                                 0          1
+DUMMY_DERIVER_STACK_USE                           0          1
+RELAX_MAYWRITE                                    0          1
+RELAX_MAYWRITE_NONPTR_FIELDS_UNINIT               0          1
+RELAX_MAYWRITE_ALL_FIELDS                         0          1
+RELAX_READ                                        0          1
+RELAX_MAYREAD_NONPTR_FIELDS                       0          1
+RELAX_UNINIT_ALLOC                                0          1
+DUMMY_DERIVER_UNINIT                              0          1
+RELAX_UNCAUGHT_EXCEPT                             0          1
+DUMMY_DERIVER_EXCEPTIONS                          0          1
+CHECKED_RETURN_STAT                               0          1
+ADDR_ARG_STAT                                     0          1
+BAD_OVERRIDE                                      0          1
+sequential initialization                       149          1
+Looking for translation units                     0          1
+Computing links for translation units            13          1
+xfer symbol cache                                 3          1
+Computing virtual overrides                       9          1
+Computing callgraph                              48          1
+Topologically sorting functions                   5          1
+Computing node costs                              6          1
+Analysis run                                   1378          1
+loadFromEmit                                    423        896
+types/warning pass                                6          1

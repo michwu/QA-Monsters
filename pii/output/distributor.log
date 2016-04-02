@@ -1,0 +1,177 @@
+1459555588.096: DM started: dm_pid=30101
+1459555588.096: DM command line: /usr/local/cov-analysis-linux64-8.0.0/bin/cov-internal-dm --AM-port 38697 --log-file /home/zxxu/sa_output/intermediate_r0/output/distributor.log -j 8 --AW-timeout 36000 /usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze --worker --message-size-limit 104857600
+1459555588.096: Connecting to AM at 127.0.0.1:38697
+1459555588.096: Connected to AM: (local) 127.0.0.1:41656 - 127.0.0.1:38697 (remote)
+1459555588.096: Listening for DWs at 127.0.0.1:43588
+1459555588.096: Starting DW 1 with command line: /usr/local/cov-analysis-linux64-8.0.0/bin/cov-internal-dw --DM-port 43588 --DW-id 1
+1459555588.096: DW 1 started: dw_pid=30103
+1459555588.096: Starting DW 2 with command line: /usr/local/cov-analysis-linux64-8.0.0/bin/cov-internal-dw --DM-port 43588 --DW-id 2
+1459555588.097: DW 2 started: dw_pid=30104
+1459555588.097: Starting DW 3 with command line: /usr/local/cov-analysis-linux64-8.0.0/bin/cov-internal-dw --DM-port 43588 --DW-id 3
+1459555588.097: DW 3 started: dw_pid=30105
+1459555588.098: Starting DW 4 with command line: /usr/local/cov-analysis-linux64-8.0.0/bin/cov-internal-dw --DM-port 43588 --DW-id 4
+1459555588.098: DW 4 started: dw_pid=30106
+1459555588.098: Starting DW 5 with command line: /usr/local/cov-analysis-linux64-8.0.0/bin/cov-internal-dw --DM-port 43588 --DW-id 5
+1459555588.098: DW 5 started: dw_pid=30107
+1459555588.098: Starting DW 6 with command line: /usr/local/cov-analysis-linux64-8.0.0/bin/cov-internal-dw --DM-port 43588 --DW-id 6
+1459555588.098: DW 6 started: dw_pid=30108
+1459555588.098: Starting DW 7 with command line: /usr/local/cov-analysis-linux64-8.0.0/bin/cov-internal-dw --DM-port 43588 --DW-id 7
+1459555588.098: DW 7 started: dw_pid=30109
+1459555588.101: Starting DW 8 with command line: /usr/local/cov-analysis-linux64-8.0.0/bin/cov-internal-dw --DM-port 43588 --DW-id 8
+1459555588.101: DW 8 started: dw_pid=30113
+1459555588.101: DW 1 log: 1459555588.099: Connecting to DM on 127.0.0.1:43588
+1459555588.101: DW 1 log: 1459555588.099: Connected to the DM: (local) 127.0.0.1:52724 - 127.0.0.1:43588 (remote)
+1459555588.101: DW 1 log: 1459555588.099: Sending DWDM_INIT: dw_id=1, benchmark=0
+1459555588.101: DW 2 log: 1459555588.099: Connecting to DM on 127.0.0.1:43588
+1459555588.101: DW 2 log: 1459555588.099: Connected to the DM: (local) 127.0.0.1:52722 - 127.0.0.1:43588 (remote)
+1459555588.101: DW 2 log: 1459555588.099: Sending DWDM_INIT: dw_id=2, benchmark=0
+1459555588.101: DW 3 log: 1459555588.099: Connecting to DM on 127.0.0.1:43588
+1459555588.101: DW 3 log: 1459555588.099: Connected to the DM: (local) 127.0.0.1:52723 - 127.0.0.1:43588 (remote)
+1459555588.101: DW 3 log: 1459555588.099: Sending DWDM_INIT: dw_id=3, benchmark=0
+1459555588.101: Received a connection from a DW: 127.0.0.1:52722
+1459555588.101: Received a connection from a DW: 127.0.0.1:52723
+1459555588.101: Received a connection from a DW: 127.0.0.1:52724
+1459555588.101: Received DWDM_INIT: dw_id=1, benchmark=0
+1459555588.101: Sending DMDW_INIT to DW 1: aw_command_line=["/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze","--worker","--message-size-limit","104857600"], aw_image=(empty), awFaults=[], awTimeoutSeconds=36000
+1459555588.101: DW 1 log: 1459555588.099: Received DMDW_INIT: aw_command_line=["/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze","--worker","--message-size-limit","104857600"], aw_image=(empty), awFaults=[], awTimeoutSeconds=36000
+1459555588.102: DW 1 log: 1459555588.099: Started listening for AW at 127.0.0.1:52534
+1459555588.102: DW 1 log: 1459555588.099: Starting AW with command line (COVERITY_DW_PORT=52534): /usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze --worker --message-size-limit 104857600
+1459555588.102: DW 1 log: 1459555588.099: AW started: aw_pid=30117
+1459555588.102: DW 4 log: 1459555588.101: Connecting to DM on 127.0.0.1:43588
+1459555588.102: DW 4 log: 1459555588.101: Connected to the DM: (local) 127.0.0.1:52725 - 127.0.0.1:43588 (remote)
+1459555588.102: DW 4 log: 1459555588.101: Sending DWDM_INIT: dw_id=4, benchmark=0
+1459555588.102: DW 5 log: 1459555588.101: Connecting to DM on 127.0.0.1:43588
+1459555588.102: DW 5 log: 1459555588.101: Connected to the DM: (local) 127.0.0.1:52726 - 127.0.0.1:43588 (remote)
+1459555588.102: DW 5 log: 1459555588.101: Sending DWDM_INIT: dw_id=5, benchmark=0
+1459555588.102: Received DWDM_INIT: dw_id=3, benchmark=0
+1459555588.102: Sending DMDW_INIT to DW 3: aw_command_line=["/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze","--worker","--message-size-limit","104857600"], aw_image=(empty), awFaults=[], awTimeoutSeconds=36000
+1459555588.102: DW 6 log: 1459555588.101: Connecting to DM on 127.0.0.1:43588
+1459555588.102: DW 6 log: 1459555588.101: Connected to the DM: (local) 127.0.0.1:52727 - 127.0.0.1:43588 (remote)
+1459555588.102: DW 6 log: 1459555588.101: Sending DWDM_INIT: dw_id=6, benchmark=0
+1459555588.102: DW 7 log: 1459555588.101: Connecting to DM on 127.0.0.1:43588
+1459555588.102: DW 7 log: 1459555588.101: Connected to the DM: (local) 127.0.0.1:52728 - 127.0.0.1:43588 (remote)
+1459555588.102: DW 7 log: 1459555588.101: Sending DWDM_INIT: dw_id=7, benchmark=0
+1459555588.102: Received a connection from a DW: 127.0.0.1:52725
+1459555588.102: Received DWDM_INIT: dw_id=2, benchmark=0
+1459555588.102: Sending DMDW_INIT to DW 2: aw_command_line=["/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze","--worker","--message-size-limit","104857600"], aw_image=(empty), awFaults=[], awTimeoutSeconds=36000
+1459555588.102: DW 3 log: 1459555588.102: Received DMDW_INIT: aw_command_line=["/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze","--worker","--message-size-limit","104857600"], aw_image=(empty), awFaults=[], awTimeoutSeconds=36000
+1459555588.102: Received a connection from a DW: 127.0.0.1:52726
+1459555588.102: Received a connection from a DW: 127.0.0.1:52727
+1459555588.102: Received DWDM_INIT: dw_id=4, benchmark=0
+1459555588.102: Sending DMDW_INIT to DW 4: aw_command_line=["/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze","--worker","--message-size-limit","104857600"], aw_image=(empty), awFaults=[], awTimeoutSeconds=36000
+1459555588.103: Received a connection from a DW: 127.0.0.1:52728
+1459555588.103: Received DWDM_INIT: dw_id=5, benchmark=0
+1459555588.103: Sending DMDW_INIT to DW 5: aw_command_line=["/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze","--worker","--message-size-limit","104857600"], aw_image=(empty), awFaults=[], awTimeoutSeconds=36000
+1459555588.103: DW 3 log: 1459555588.102: Started listening for AW at 127.0.0.1:57256
+1459555588.103: Received DWDM_INIT: dw_id=6, benchmark=0
+1459555588.103: Sending DMDW_INIT to DW 6: aw_command_line=["/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze","--worker","--message-size-limit","104857600"], aw_image=(empty), awFaults=[], awTimeoutSeconds=36000
+1459555588.103: DW 3 log: 1459555588.102: Starting AW with command line (COVERITY_DW_PORT=57256): /usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze --worker --message-size-limit 104857600
+1459555588.103: DW 3 log: 1459555588.102: AW started: aw_pid=30121
+1459555588.103: DW 4 log: 1459555588.103: Received DMDW_INIT: aw_command_line=["/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze","--worker","--message-size-limit","104857600"], aw_image=(empty), awFaults=[], awTimeoutSeconds=36000
+1459555588.103: DW 5 log: 1459555588.101: Received DMDW_INIT: aw_command_line=["/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze","--worker","--message-size-limit","104857600"], aw_image=(empty), awFaults=[], awTimeoutSeconds=36000
+1459555588.103: DW 5 log: 1459555588.101: Started listening for AW at 127.0.0.1:53381
+1459555588.103: DW 5 log: 1459555588.101: Starting AW with command line (COVERITY_DW_PORT=53381): /usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze --worker --message-size-limit 104857600
+1459555588.103: DW 5 log: 1459555588.101: AW started: aw_pid=30122
+1459555588.103: DW 8 log: 1459555588.102: Connecting to DM on 127.0.0.1:43588
+1459555588.104: Received DWDM_INIT: dw_id=7, benchmark=0
+1459555588.104: Sending DMDW_INIT to DW 7: aw_command_line=["/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze","--worker","--message-size-limit","104857600"], aw_image=(empty), awFaults=[], awTimeoutSeconds=36000
+1459555588.104: DW 4 log: 1459555588.103: Started listening for AW at 127.0.0.1:54142
+1459555588.104: DW 4 log: 1459555588.103: Starting AW with command line (COVERITY_DW_PORT=54142): /usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze --worker --message-size-limit 104857600
+1459555588.104: DW 4 log: 1459555588.103: AW started: aw_pid=30123
+1459555588.104: DW 6 log: 1459555588.103: Received DMDW_INIT: aw_command_line=["/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze","--worker","--message-size-limit","104857600"], aw_image=(empty), awFaults=[], awTimeoutSeconds=36000
+1459555588.104: DW 6 log: 1459555588.103: Started listening for AW at 127.0.0.1:34060
+1459555588.104: DW 6 log: 1459555588.103: Starting AW with command line (COVERITY_DW_PORT=34060): /usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze --worker --message-size-limit 104857600
+1459555588.104: DW 6 log: 1459555588.103: AW started: aw_pid=30124
+1459555588.104: DW 8 log: 1459555588.102: Connected to the DM: (local) 127.0.0.1:52729 - 127.0.0.1:43588 (remote)
+1459555588.104: DW 8 log: 1459555588.102: Sending DWDM_INIT: dw_id=8, benchmark=0
+1459555588.104: Received a connection from a DW: 127.0.0.1:52729
+1459555588.104: Received DWDM_INIT: dw_id=8, benchmark=0
+1459555588.104: Stopping to listen for new DWs
+1459555588.104: Sending DMDW_INIT to DW 8: aw_command_line=["/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze","--worker","--message-size-limit","104857600"], aw_image=(empty), awFaults=[], awTimeoutSeconds=36000
+1459555588.104: DW 7 log: 1459555588.101: Received DMDW_INIT: aw_command_line=["/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze","--worker","--message-size-limit","104857600"], aw_image=(empty), awFaults=[], awTimeoutSeconds=36000
+1459555588.104: DW 7 log: 1459555588.101: Started listening for AW at 127.0.0.1:32890
+1459555588.104: DW 7 log: 1459555588.101: Starting AW with command line (COVERITY_DW_PORT=32890): /usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze --worker --message-size-limit 104857600
+1459555588.104: DW 7 log: 1459555588.101: AW started: aw_pid=30126
+1459555588.104: DW 8 log: 1459555588.102: Received DMDW_INIT: aw_command_line=["/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze","--worker","--message-size-limit","104857600"], aw_image=(empty), awFaults=[], awTimeoutSeconds=36000
+1459555588.104: DW 8 log: 1459555588.102: Started listening for AW at 127.0.0.1:47805
+1459555588.104: DW 8 log: 1459555588.102: Starting AW with command line (COVERITY_DW_PORT=47805): /usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze --worker --message-size-limit 104857600
+1459555588.104: DW 8 log: 1459555588.102: AW started: aw_pid=30125
+1459555588.104: DW 2 log: 1459555588.102: Received DMDW_INIT: aw_command_line=["/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze","--worker","--message-size-limit","104857600"], aw_image=(empty), awFaults=[], awTimeoutSeconds=36000
+1459555588.105: DW 2 log: 1459555588.102: Started listening for AW at 127.0.0.1:47909
+1459555588.105: DW 2 log: 1459555588.102: Starting AW with command line (COVERITY_DW_PORT=47909): /usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze --worker --message-size-limit 104857600
+1459555588.105: DW 2 log: 1459555588.102: AW started: aw_pid=30127
+1459555588.108: DW 3 log: 1459555588.108: DW 3 received connection from AW: (local) 127.0.0.1:57256 - 127.0.0.1:52745 (remote)
+1459555588.111: DW 7 log: 1459555588.111: DW 7 received connection from AW: (local) 127.0.0.1:32890 - 127.0.0.1:35540 (remote)
+1459555588.113: DW 1 log: 1459555588.112: DW 1 received connection from AW: (local) 127.0.0.1:52534 - 127.0.0.1:47219 (remote)
+1459555588.113: DW 4 log: 1459555588.108: DW 4 received connection from AW: (local) 127.0.0.1:54142 - 127.0.0.1:56983 (remote)
+1459555588.113: DW 5 log: 1459555588.114: DW 5 received connection from AW: (local) 127.0.0.1:53381 - 127.0.0.1:41546 (remote)
+1459555588.115: DW 8 log: 1459555588.115: DW 8 received connection from AW: (local) 127.0.0.1:47805 - 127.0.0.1:47451 (remote)
+1459555588.117: DW 2 log: 1459555588.116: DW 2 received connection from AW: (local) 127.0.0.1:47909 - 127.0.0.1:36851 (remote)
+1459555588.143: DW 6 log: 1459555588.141: DW 6 received connection from AW: (local) 127.0.0.1:34060 - 127.0.0.1:50638 (remote)
+1459555589.474: AM closed the connection, DM shutting down
+1459555589.474: Disconnecting DW 2
+1459555589.474: Disconnecting DW 3
+1459555589.474: Disconnecting DW 1
+1459555589.474: Disconnecting DW 4
+1459555589.474: Disconnecting DW 5
+1459555589.474: Disconnecting DW 6
+1459555589.474: Disconnecting DW 7
+1459555589.474: Disconnecting DW 8
+1459555589.474: DW 1 log: 1459555589.473: DW 1: the DM closed the connection, DW shutting down
+1459555589.474: DW 1 log: 1459555589.473: DW 1 summary: aw_starts=1, wurs_sent=83, total_awms=903, total_dwms=1020
+1459555589.474: DW 1 log: 1459555589.473: Disconnecting AW
+1459555589.474: DW 2 log: 1459555589.473: DW 2: the DM closed the connection, DW shutting down
+1459555589.474: DW 2 log: 1459555589.473: DW 2 summary: aw_starts=1, wurs_sent=96, total_awms=481, total_dwms=654
+1459555589.474: DW 2 log: 1459555589.473: Disconnecting AW
+1459555589.474: DW 3 log: 1459555589.473: DW 3: the DM closed the connection, DW shutting down
+1459555589.474: DW 3 log: 1459555589.473: DW 3 summary: aw_starts=1, wurs_sent=87, total_awms=426, total_dwms=561
+1459555589.474: DW 3 log: 1459555589.473: Disconnecting AW
+1459555589.474: DW 4 log: 1459555589.474: DW 4: the DM closed the connection, DW shutting down
+1459555589.474: DW 4 log: 1459555589.474: DW 4 summary: aw_starts=1, wurs_sent=55, total_awms=427, total_dwms=604
+1459555589.474: DW 4 log: 1459555589.474: Disconnecting AW
+1459555589.474: DW 6 log: 1459555589.474: DW 6: the DM closed the connection, DW shutting down
+1459555589.474: DW 6 log: 1459555589.474: DW 6 summary: aw_starts=1, wurs_sent=45, total_awms=152, total_dwms=249
+1459555589.474: DW 6 log: 1459555589.474: Disconnecting AW
+1459555589.474: DW 8 log: 1459555589.473: DW 8: the DM closed the connection, DW shutting down
+1459555589.474: DW 8 log: 1459555589.473: DW 8 summary: aw_starts=1, wurs_sent=14, total_awms=94, total_dwms=155
+1459555589.474: DW 8 log: 1459555589.473: Disconnecting AW
+1459555589.479: DW 5 log: 1459555589.474: DW 5: the DM closed the connection, DW shutting down
+1459555589.479: DW 5 log: 1459555589.474: DW 5 summary: aw_starts=1, wurs_sent=65, total_awms=302, total_dwms=435
+1459555589.479: DW 5 log: 1459555589.474: Disconnecting AW
+1459555589.479: DW 7 log: 1459555589.473: DW 7: the DM closed the connection, DW shutting down
+1459555589.479: DW 7 log: 1459555589.473: DW 7 summary: aw_starts=1, wurs_sent=26, total_awms=107, total_dwms=213
+1459555589.479: DW 7 log: 1459555589.473: Disconnecting AW
+1459555589.482: DW 7 log: 1459555589.481: AW exited with code 0
+1459555589.482: DW 7 log: AW peak mem bytes: 52940800
+1459555589.482: DW 8 log: 1459555589.480: AW exited with code 0
+1459555589.482: DW 8 log: AW peak mem bytes: 52654080
+1459555589.482: DW 8 exited with code 0
+1459555589.482: DW 7 exited with code 0
+1459555589.483: DW 1 log: 1459555589.482: AW exited with code 0
+1459555589.483: DW 1 log: AW peak mem bytes: 57225216
+1459555589.483: DW 4 log: 1459555589.482: AW exited with code 0
+1459555589.483: DW 4 log: AW peak mem bytes: 54124544
+1459555589.484: DW 1 exited with code 0
+1459555589.484: DW 4 exited with code 0
+1459555589.485: DW 5 log: 1459555589.485: AW exited with code 0
+1459555589.485: DW 5 log: AW peak mem bytes: 53063680
+1459555589.485: DW 5 exited with code 0
+1459555589.487: DW 6 log: 1459555589.487: AW exited with code 0
+1459555589.487: DW 6 log: AW peak mem bytes: 52924416
+1459555589.489: DW 3 log: 1459555589.486: AW exited with code 0
+1459555589.489: DW 3 log: AW peak mem bytes: 53280768
+1459555589.489: DW 6 exited with code 0
+1459555589.489: DW 2 log: 1459555589.488: AW exited with code 0
+1459555589.489: DW 2 log: AW peak mem bytes: 53112832
+1459555589.489: DW 3 exited with code 0
+1459555589.489: DW 2 exited with code 0
+1459555589.489: dm-summary: elapsed_time_ms=1394, am_to_dm_wus=471, dm_to_am_wurs=471
+1459555589.489: dw-summary: dw_id=1, state=inactive, wus_outstanding=0, wus_sent=83, wurs_received=83, active_ms=1022, idle_ms=339
+1459555589.489: dw-summary: dw_id=2, state=inactive, wus_outstanding=0, wus_sent=96, wurs_received=96, active_ms=689, idle_ms=329
+1459555589.489: dw-summary: dw_id=3, state=inactive, wus_outstanding=0, wus_sent=87, wurs_received=87, active_ms=570, idle_ms=449
+1459555589.489: dw-summary: dw_id=4, state=inactive, wus_outstanding=0, wus_sent=55, wurs_received=55, active_ms=614, idle_ms=405
+1459555589.489: dw-summary: dw_id=5, state=inactive, wus_outstanding=0, wus_sent=65, wurs_received=65, active_ms=463, idle_ms=557
+1459555589.489: dw-summary: dw_id=6, state=inactive, wus_outstanding=0, wus_sent=45, wurs_received=45, active_ms=253, idle_ms=755
+1459555589.489: dw-summary: dw_id=7, state=inactive, wus_outstanding=0, wus_sent=26, wurs_received=26, active_ms=214, idle_ms=774
+1459555589.489: dw-summary: dw_id=8, state=inactive, wus_outstanding=0, wus_sent=14, wurs_received=14, active_ms=156, idle_ms=777
+1459555589.489: DM exiting with code 0

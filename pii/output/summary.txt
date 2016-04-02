@@ -1,0 +1,10 @@
+/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze --dir /home/zxxu/sa_output/intermediate_r0 
+Analysis summary report:
+------------------------
+Files analyzed                 : 44
+Total LoC input to cov-analyze : 84682
+Functions analyzed             : 448
+Classes/structs analyzed       : 138
+Paths analyzed                 : 1231
+Time taken by analysis         : 00:00:02
+Defect occurrences found       : 0
