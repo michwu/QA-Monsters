@@ -1,0 +1,2 @@
+[LOG] run: /usr/local/cov-analysis-linux64-8.0.0/bin/cov-format-errors --dir /home/zxxu/sa_output/intermediate_r0 --json-output-v4 /home/zxxu/sa_output/intermediate_r0/output/cov-blame/errors.json --outputdir /home/zxxu/sa_output/intermediate_r0/output
+[LOG] /usr/local/cov-analysis-linux64-8.0.0/bin/cov-format-errors exits successfully.

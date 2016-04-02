@@ -1,0 +1,14 @@
+{
+  "header" : {
+    "format" : "commit preview report",
+    "version" : 2
+  },
+  "analysisInfo" : {
+    "ownerAssignmentRule" : "default_component_owner",
+    "comparisonSnapshotId" : null,
+    "reportTimestamp" : "2016-04-02T00:07:37.131Z",
+    "user" : "admin",
+    "command" : "/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze --dir /home/zxxu/sa_output/intermediate_r0"
+  },
+  "issueInfo" : [ ]
+}

@@ -1,0 +1,10 @@
+{
+  covAnalyzeArgs : [
+    "--fb-include",
+    "coverity-default"
+  ],
+  fileCheckerOptions : [],
+  fbExcludeConfigurations : [],
+  fbIncludeConfiguration : null,
+  misraConfiguration : null
+}
